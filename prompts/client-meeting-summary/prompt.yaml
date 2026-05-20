@@ -1,0 +1,50 @@
+prompt_id: client-meeting-summary
+name: Client Meeting Summary
+version: 1.0.0
+status: production
+owner: ai-enablement.advisor-productivity@example.com
+business_unit: Wealth Management — Advisor Productivity
+primary_users:
+  - Financial Advisors
+  - Client Service Associates
+approved_tools:
+  - Enterprise LLM Gateway
+  - Approved CRM (write-after-review)
+risk_level: High
+data_classification: Confidential — Client Context
+approved_use_cases:
+  - Structured summary of an advisor-attended client meeting from advisor notes.
+  - Production of a CRM-ready note for advisor review and approval.
+  - Surfacing of action items, follow-up questions, and review flags.
+prohibited_use_cases:
+  - Producing client-facing emails or letters (use client-follow-up-email).
+  - Generating recommendations, suitability statements, or guarantees.
+  - Summarizing meetings the advisor did not attend.
+  - Operating on raw recordings or transcripts not first reviewed by the advisor.
+required_inputs:
+  - advisor_meeting_notes
+  - advisor_name
+  - client_identifier
+  - meeting_date
+required_outputs:
+  - executive_summary
+  - client_goals_discussed
+  - client_concerns_discussed
+  - action_items
+  - follow_up_questions
+  - crm_ready_note
+  - human_review_flags
+output_schema: output-schema.json
+human_review_required: true
+source_grounding_required: true
+pii_handling: Do not include account numbers, SSN, DOB, or other NPI in the output. Use client_identifier as the only reference.
+compliance_notes: >
+  High-risk because content may inform downstream client-facing communication
+  and CRM records of supervisory interest. Output is a draft that the advisor
+  must review before saving to CRM or referencing in client communication.
+last_reviewed: 2026-05-15
+approved_by:
+  - prompt_owner: ai-enablement.advisor-productivity@example.com
+  - ai_enablement_lead: ai-enablement.lead@example.com
+  - compliance_liaison: compliance.liaison@example.com
+change_summary: Initial approved release.

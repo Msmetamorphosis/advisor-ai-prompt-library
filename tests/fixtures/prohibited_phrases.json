@@ -1,0 +1,15 @@
+{
+  "description": "Phrases that must not appear in production prompt text (system.md) or example output blocks. Tests intelligently exclude prohibited-use-case explanations, refusal examples, and compliance documentation context where these phrases are *named in order to be banned*.",
+  "phrases": [
+    "guaranteed return",
+    "guaranteed returns",
+    "you should invest",
+    "this is suitable for you",
+    "risk free",
+    "risk-free",
+    "will outperform",
+    "tax advice",
+    "legal advice",
+    "approved recommendation"
+  ]
+}

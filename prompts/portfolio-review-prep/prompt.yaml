@@ -1,0 +1,50 @@
+prompt_id: portfolio-review-prep
+name: Portfolio Review Prep
+version: 1.0.0
+status: production
+owner: ai-enablement.advisor-productivity@example.com
+business_unit: Wealth Management — Advisor Productivity
+primary_users:
+  - Financial Advisors
+approved_tools:
+  - Enterprise LLM Gateway
+  - Approved Portfolio Data Summary (read-only)
+risk_level: High
+data_classification: Confidential — Client Portfolio Context
+approved_use_cases:
+  - Building a structured portfolio-review-meeting agenda from approved data summaries.
+  - Surfacing prior-stated client goals to revisit.
+  - Suggesting questions for advisor consideration.
+  - Identifying items requiring updated data before the meeting.
+prohibited_use_cases:
+  - Producing rebalancing recommendations.
+  - Producing buy / sell / hold recommendations.
+  - Producing suitability determinations.
+  - Producing client-facing copy (this prompt is internal-only).
+  - Operating on raw transaction-level data or unredacted holdings.
+required_inputs:
+  - portfolio_data_summary
+  - prior_client_goals
+  - advisor_name
+  - client_identifier
+  - meeting_date
+required_outputs:
+  - review_agenda
+  - client_goals_to_revisit
+  - questions_for_advisor_consideration
+  - items_requiring_updated_data
+  - human_review_flags
+output_schema: output-schema.json
+human_review_required: true
+source_grounding_required: true
+pii_handling: Use client_identifier as the reference. Do not include account numbers, balances per-position, or other NPI in output beyond the summary level provided.
+compliance_notes: >
+  High-risk: portfolio-context output may influence decisions discussed with the
+  client. Must not contain recommendations, suitability statements, or
+  rebalancing guidance. Sensitive items must be flagged for the advisor.
+last_reviewed: 2026-05-15
+approved_by:
+  - prompt_owner: ai-enablement.advisor-productivity@example.com
+  - ai_enablement_lead: ai-enablement.lead@example.com
+  - compliance_liaison: compliance.liaison@example.com
+change_summary: Initial approved release.

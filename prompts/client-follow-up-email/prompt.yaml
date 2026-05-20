@@ -1,0 +1,45 @@
+prompt_id: client-follow-up-email
+name: Client Follow-Up Email
+version: 1.0.0
+status: production
+owner: ai-enablement.advisor-productivity@example.com
+business_unit: Wealth Management — Advisor Productivity
+primary_users:
+  - Financial Advisors
+approved_tools:
+  - Enterprise LLM Gateway
+risk_level: High
+data_classification: Confidential — Client Communication Draft
+approved_use_cases:
+  - Drafting a follow-up email to a client recapping a meeting the advisor attended.
+  - Producing a draft for the advisor to review, edit, and send.
+prohibited_use_cases:
+  - Sending email directly to a client without advisor review.
+  - Generating investment recommendations, performance promises, or guarantees.
+  - Providing tax advice, legal advice, or accounting guidance.
+  - Drafting communication on behalf of an advisor for a meeting they did not attend.
+  - Including NPI such as account numbers, SSN, DOB, or other identifiers.
+required_inputs:
+  - meeting_summary
+  - advisor_name
+  - client_first_name
+  - client_identifier
+  - action_items_recap
+required_outputs:
+  - subject_line
+  - draft_email
+  - action_item_recap
+  - advisor_review_reminder
+human_review_required: true
+source_grounding_required: true
+pii_handling: Use client_first_name in greeting only. Do not include account numbers, SSN, DOB, balances, or other NPI.
+compliance_notes: >
+  High-risk: output is intended for client delivery after advisor edit. Must
+  not contain advice, recommendations, guarantees, tax or legal language.
+  Required disclosure-style closer must remain in the draft.
+last_reviewed: 2026-05-15
+approved_by:
+  - prompt_owner: ai-enablement.advisor-productivity@example.com
+  - ai_enablement_lead: ai-enablement.lead@example.com
+  - compliance_liaison: compliance.liaison@example.com
+change_summary: Initial approved release.

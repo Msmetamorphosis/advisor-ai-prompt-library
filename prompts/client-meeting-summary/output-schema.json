@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/schemas/client-meeting-summary.json",
+  "title": "Client Meeting Summary Output",
+  "type": "object",
+  "required": [
+    "executive_summary",
+    "client_goals_discussed",
+    "client_concerns_discussed",
+    "action_items",
+    "follow_up_questions",
+    "crm_ready_note",
+    "human_review_flags"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "executive_summary": {
+      "type": "string",
+      "minLength": 20,
+      "description": "2-4 sentence factual summary grounded in the advisor's notes."
+    },
+    "client_goals_discussed": {
+      "type": "array",
+      "items": {"type": "string"},
+      "description": "Goals as framed by the client in the advisor's notes."
+    },
+    "client_concerns_discussed": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "action_items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["item", "owner"],
+        "additionalProperties": false,
+        "properties": {
+          "item": {"type": "string"},
+          "owner": {"type": "string", "enum": ["advisor", "client", "operations", "unspecified"]},
+          "due_date": {"type": "string", "description": "ISO date or empty string if not specified."}
+        }
+      }
+    },
+    "follow_up_questions": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "crm_ready_note": {
+      "type": "string",
+      "minLength": 40,
+      "description": "Concise CRM-ready draft for advisor review. No recommendations, no suitability statements, no NPI."
+    },
+    "human_review_flags": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["topic", "reason"],
+        "additionalProperties": false,
+        "properties": {
+          "topic": {"type": "string"},
+          "reason": {"type": "string"}
+        }
+      },
+      "description": "Empty array means none flagged."
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "description": "Required top-level keys in every prompt.yaml.",
+  "fields": [
+    "prompt_id",
+    "name",
+    "version",
+    "status",
+    "owner",
+    "business_unit",
+    "primary_users",
+    "approved_tools",
+    "risk_level",
+    "data_classification",
+    "approved_use_cases",
+    "prohibited_use_cases",
+    "required_inputs",
+    "required_outputs",
+    "human_review_required",
+    "source_grounding_required",
+    "pii_handling",
+    "compliance_notes",
+    "last_reviewed",
+    "approved_by",
+    "change_summary"
+  ],
+  "valid_risk_levels": ["Low", "Medium", "High", "Restricted"],
+  "valid_status_values": ["draft", "pilot", "production", "paused", "retired"]
+}

@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/schemas/portfolio-review-prep.json",
+  "title": "Portfolio Review Prep Output",
+  "type": "object",
+  "required": [
+    "review_agenda",
+    "client_goals_to_revisit",
+    "questions_for_advisor_consideration",
+    "items_requiring_updated_data",
+    "human_review_flags"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "review_agenda": {
+      "type": "array",
+      "items": {"type": "string"},
+      "description": "Topic-level agenda items only. No recommendations or target weights."
+    },
+    "client_goals_to_revisit": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "questions_for_advisor_consideration": {
+      "type": "array",
+      "items": {"type": "string"},
+      "description": "Advisor-internal thinking questions, not advice."
+    },
+    "items_requiring_updated_data": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "human_review_flags": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["topic", "reason"],
+        "additionalProperties": false,
+        "properties": {
+          "topic": {"type": "string"},
+          "reason": {"type": "string"}
+        }
+      }
+    }
+  }
+}
