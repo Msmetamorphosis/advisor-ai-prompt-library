@@ -1,0 +1,15 @@
+{
+  "description": "Sample registry shape used by tests/test_required_files.py and by docs to illustrate the expected output of scripts/generate_prompt_registry.py.",
+  "generated_at": "2026-05-15T00:00:00Z",
+  "prompts": [
+    {
+      "prompt_id": "advisor-meeting-prep",
+      "name": "Advisor Meeting Prep",
+      "version": "1.0.0",
+      "risk_level": "Medium",
+      "status": "production",
+      "owner": "ai-enablement.advisor-productivity@example.com",
+      "path": "prompts/advisor-meeting-prep"
+    }
+  ]
+}

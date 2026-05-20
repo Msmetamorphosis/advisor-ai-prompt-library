@@ -1,0 +1,22 @@
+{
+  "prompt_id": "<prompt-id>",
+  "prompt_version": "<x.y.z>",
+  "cases": [
+    {
+      "id": "<prefix>-001-<short-name>",
+      "description": "<what this case tests>",
+      "input": {
+        "<placeholder_1>": "<value>",
+        "<placeholder_2>": "<value>"
+      },
+      "expected_behavior": "<plain-language description of what the prompt should do>",
+      "must_include": ["<phrase or substring that MUST appear in safe output>"],
+      "must_not_include": ["<phrase that MUST NOT appear in output>"],
+      "rubric_targets": {
+        "compliance_safety": 5,
+        "hallucination_resistance": 5,
+        "grounding": 5
+      }
+    }
+  ]
+}

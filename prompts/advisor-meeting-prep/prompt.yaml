@@ -1,0 +1,48 @@
+prompt_id: advisor-meeting-prep
+name: Advisor Meeting Prep
+version: 1.0.0
+status: production
+owner: ai-enablement.advisor-productivity@example.com
+business_unit: Wealth Management — Advisor Productivity
+primary_users:
+  - Financial Advisors
+  - Client Service Associates
+approved_tools:
+  - Enterprise LLM Gateway
+  - Approved CRM (read-only context)
+risk_level: Medium
+data_classification: Internal — Confidential
+approved_use_cases:
+  - Build a pre-meeting brief from approved CRM notes.
+  - Surface known facts, prior action items, and open questions.
+  - Suggest internal conversation topics for the advisor to consider.
+approved_inputs_source: Approved CRM read-only context only.
+prohibited_use_cases:
+  - Generating investment recommendations.
+  - Making suitability determinations.
+  - Producing client-facing output.
+  - Operating on unverified or unapproved source notes.
+required_inputs:
+  - client_meeting_notes
+  - advisor_name
+  - client_identifier
+  - approved_context
+required_outputs:
+  - known_facts
+  - client_stated_goals
+  - prior_action_items
+  - open_questions
+  - suggested_conversation_topics
+  - missing_information
+  - human_review_flags
+human_review_required: true
+source_grounding_required: true
+pii_handling: Use only the client_identifier and the redacted CRM context provided. Do not invent PII.
+compliance_notes: >
+  Output is internal only. Must not contain recommendations, suitability statements,
+  or guarantees. Sensitive topics (tax, legal, suitability) must be surfaced as human_review_flags.
+last_reviewed: 2026-05-15
+approved_by:
+  - prompt_owner: ai-enablement.advisor-productivity@example.com
+  - ai_enablement_lead: ai-enablement.lead@example.com
+change_summary: Initial approved release.

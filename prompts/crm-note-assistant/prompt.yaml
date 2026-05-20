@@ -1,0 +1,44 @@
+prompt_id: crm-note-assistant
+name: CRM Note Assistant
+version: 1.0.0
+status: production
+owner: ai-enablement.advisor-productivity@example.com
+business_unit: Wealth Management — Advisor Productivity
+primary_users:
+  - Financial Advisors
+  - Client Service Associates
+approved_tools:
+  - Enterprise LLM Gateway
+  - Approved CRM (write-after-review)
+risk_level: Medium
+data_classification: Internal — Confidential
+approved_use_cases:
+  - Convert short advisor-provided source material into a tight CRM-ready note.
+  - Make CRM documentation faster and more uniform.
+prohibited_use_cases:
+  - Producing client-facing communication.
+  - Inferring recommendations, suitability, or advice not present in the source material.
+  - Operating on transcripts or recordings not first reviewed by the advisor.
+  - Inventing dates, attendees, figures, or commitments.
+required_inputs:
+  - advisor_source_material
+  - advisor_name
+  - client_identifier
+  - note_topic
+required_outputs:
+  - crm_note
+  - source_evidence
+  - review_flags
+  - missing_information
+output_schema: output-schema.json
+human_review_required: true
+source_grounding_required: true
+pii_handling: Do not echo account numbers, SSN, DOB, or other NPI. Use client_identifier as the reference.
+compliance_notes: >
+  Medium-risk: output is internal-only but feeds the official client record and
+  may be reviewed by supervisors. Advisor must review before saving.
+last_reviewed: 2026-05-15
+approved_by:
+  - prompt_owner: ai-enablement.advisor-productivity@example.com
+  - ai_enablement_lead: ai-enablement.lead@example.com
+change_summary: Initial approved release.

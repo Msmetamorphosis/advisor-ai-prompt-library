@@ -1,0 +1,35 @@
+# Prompt Metadata Template
+#
+# Copy this file to prompts/<your-prompt-id>/prompt.yaml and fill in every field.
+# Required fields are enforced by tests/test_prompt_metadata.py.
+
+prompt_id: <kebab-case-id>             # Required. Unique across the library.
+name: <Human Readable Name>            # Required.
+version: 0.1.0                          # Required. Semantic version.
+status: draft                           # draft | pilot | production | paused | retired
+owner: <email or team alias>            # Required. Accountable owner.
+business_unit: <BU name>                # Required.
+primary_users:                          # Required. List of user types.
+  - Financial Advisors
+approved_tools:                         # Required. Which platforms/integrations.
+  - Enterprise LLM Gateway
+risk_level: Low                         # Required. Low | Medium | High | Restricted
+data_classification: <classification>   # Required.
+approved_use_cases:                     # Required.
+  - <approved use case>
+prohibited_use_cases:                   # Required. List explicit prohibitions.
+  - <prohibited use case>
+required_inputs:                        # Required. Match {{placeholders}} in user-template.md.
+  - <input_name>
+required_outputs:                       # Required. Fields the prompt must produce.
+  - <output_name>
+output_schema: output-schema.json       # Optional. Required if output is structured JSON.
+human_review_required: true             # Required. Must be true for Medium / High / Restricted.
+source_grounding_required: true         # Required. true if output must trace to provided sources.
+pii_handling: <description>             # Required. State explicit PII / NPI policy.
+compliance_notes: >                     # Required. Free-text justification of risk classification.
+  <explanation>
+last_reviewed: 2026-01-01               # Required. YYYY-MM-DD. Updated on every review.
+approved_by:                            # Required. At least one approver.
+  - prompt_owner: <email>
+change_summary: <one line>              # Required. What changed since the prior version.

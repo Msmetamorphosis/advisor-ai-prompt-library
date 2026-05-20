@@ -1,0 +1,46 @@
+prompt_id: internal-policy-search
+name: Internal Policy Search
+version: 1.0.0
+status: production
+owner: ai-enablement.operations@example.com
+business_unit: Wealth Management Operations
+primary_users:
+  - Financial Advisors
+  - Client Service Associates
+  - Operations Staff
+approved_tools:
+  - Enterprise LLM Gateway
+  - Approved Internal Knowledge Retrieval (read-only)
+risk_level: Medium
+data_classification: Internal — Operational
+approved_use_cases:
+  - Answering operational and procedural questions using approved internal knowledge sources only.
+  - Surfacing the source citation and confidence level for every answer.
+  - Escalating cleanly when source evidence is insufficient.
+prohibited_use_cases:
+  - Answering when no retrieved source supports the answer.
+  - Producing client-facing communication.
+  - Providing tax, legal, or investment advice.
+  - Inferring policy from general knowledge of the industry.
+required_inputs:
+  - user_question
+  - retrieved_sources
+  - user_role
+required_outputs:
+  - direct_answer
+  - source_citation_placeholder
+  - confidence_level
+  - escalation_path
+  - missing_information
+human_review_required: true
+source_grounding_required: true
+pii_handling: Do not include client identifiers, account information, or NPI in answers.
+compliance_notes: >
+  Medium-risk: incorrect policy answers can cause operational harm. Prompt is
+  required to refuse when retrieved_sources is empty or does not support the
+  question. See retrieval-rules.md and citation-rules.md.
+last_reviewed: 2026-05-15
+approved_by:
+  - prompt_owner: ai-enablement.operations@example.com
+  - ai_enablement_lead: ai-enablement.lead@example.com
+change_summary: Initial approved release.
