@@ -23,7 +23,7 @@ Nothing in this repository constitutes investment advice, a suitability determin
 
 ## Use at Your Own Risk
 
-This repository is provided as-is, without warranty of any kind. It is not production-ready. Any firm wishing to adapt these patterns for live use must perform their own compliance, supervisory, information security, model risk management, and privacy review.
+This repository is provided as-is, without warranty of any kind. It should not be considered to be production-ready. Any firm wishing to adapt these patterns for live use must perform their own compliance, supervisory, information security, model risk management, and privacy review.
 
 ## Contact
 
