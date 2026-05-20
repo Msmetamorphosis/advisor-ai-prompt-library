@@ -183,6 +183,8 @@ A governed prompt library makes AI augmentation safer and more adoptable than ea
 
 ## About This Repository
 
+Built by: Metamorphic Curations LLC — portfolio demonstration, May 2026
+
 **What this is:** A fully functional reference implementation and demonstration of enterprise AI prompt governance for wealth management, built by Metamorphic Curations.
 
 **What this is not:** A production deployment. Any firm wishing to adapt these patterns for live advisor use must perform their own compliance, supervisory, information security, model risk management, and privacy review.
