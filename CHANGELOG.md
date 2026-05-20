@@ -1,6 +1,6 @@
 # Changelog
 
-Built by: Metamorphic Curations LLC — portfolio demonstration, May 2026
+Built by: Metamorphic Curations LLC; portfolio demonstration, May 2026
 
 All notable changes to the `advisor-ai-prompt-library` are documented here. This file aggregates library-level releases; per-prompt detail lives in each prompt's `changelog.md`.
 
@@ -34,8 +34,8 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and 
 
 ### Notes
 
-- This is a demonstration portfolio repository. See [`DISCLAIMER.md`](./DISCLAIMER.md).
-- No proprietary firm data is included; all examples are synthetic.
+- This is intended as a demonstration portfolio repository. See [`DISCLAIMER.md`](./DISCLAIMER.md).
+- No proprietary firm data is included; all examples are synthetic and may not be built out to the full extent a commissioned library would be.
 
 ---
 
