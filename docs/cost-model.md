@@ -78,6 +78,21 @@ At a 50-prompt library, correct tiering saves **$1.58M/yr vs Sonnet-default** or
 
 ---
 
+## The second lever: output length discipline
+
+The cost numbers above assume **disciplined output sizes** — the per-prompt `target_output_tokens` declared in each `prompt.yaml`. Without that discipline, current frontier models produce roughly 1.8x to 2.5x more output by default (lower for JSON/structured outputs, higher for free-form prose). At a 5x output-to-input price ratio, that verbosity is expensive.
+
+Holding tiering constant and only varying output discipline:
+
+| Strategy | Annual cost |
+|---|---:|
+| Correct tiering + disciplined output (`target_output_tokens` enforced) | **$138,293** |
+| Correct tiering + unconstrained output (no length cap) | $217,147 |
+
+**Output length discipline alone is a $78,854/yr (36.3%) reduction** on this six-prompt set, on top of correct tiering. It compounds. See `docs/output-length-discipline.md` for the underlying mechanics and the per-prompt verbosity multipliers used. Reproducible via `scripts/cost_model_output_discipline.py`.
+
+---
+
 ## What this is and is not
 
 **This is:** A reproducible cost model using real measured prompts and current public pricing. The numbers move with prompt design, model pricing, and volume — all of which are explicit inputs.

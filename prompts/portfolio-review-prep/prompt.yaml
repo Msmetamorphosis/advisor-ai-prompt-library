@@ -47,4 +47,14 @@ approved_by:
   - prompt_owner: ai-enablement.advisor-productivity@example.com
   - ai_enablement_lead: ai-enablement.lead@example.com
   - compliance_liaison: compliance.liaison@example.com
+
+# --- Output length discipline (see docs/output-length-discipline.md) ---
+max_output_tokens: 1500
+target_output_tokens: 1100
+response_length_guidance: >
+  Three sections only: (1) Concentration and risk flags, (2) Talking points
+  for the review meeting, (3) Open questions for the advisor. Each section
+  capped at 6 bullets. No executive summary, no closing synthesis. Talking
+  points must be advisor-facing notes, never client-facing language.
+
 change_summary: Initial approved release.

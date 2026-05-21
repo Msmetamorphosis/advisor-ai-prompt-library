@@ -41,4 +41,13 @@ last_reviewed: 2026-05-15
 approved_by:
   - prompt_owner: ai-enablement.advisor-productivity@example.com
   - ai_enablement_lead: ai-enablement.lead@example.com
+
+# --- Output length discipline (see docs/output-length-discipline.md) ---
+max_output_tokens: 400
+target_output_tokens: 300
+response_length_guidance: >
+  Tight structured CRM note. Fields only, no preamble or commentary. Do not
+  narrate what you are about to produce. Stop immediately after the final
+  required field is populated.
+
 change_summary: Initial approved release.

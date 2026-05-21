@@ -47,4 +47,14 @@ approved_by:
   - prompt_owner: ai-enablement.advisor-productivity@example.com
   - ai_enablement_lead: ai-enablement.lead@example.com
   - compliance_liaison: compliance.liaison@example.com
+
+# --- Output length discipline (see docs/output-length-discipline.md) ---
+max_output_tokens: 1000
+target_output_tokens: 750
+response_length_guidance: >
+  Structured JSON summary as defined by the output schema. No prose outside
+  the JSON object. Each free-text field should be 1-3 sentences, not
+  paragraphs. Action items capped at 6 entries unless the meeting genuinely
+  produced more.
+
 change_summary: Initial approved release.
