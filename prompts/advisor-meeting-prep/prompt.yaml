@@ -45,4 +45,14 @@ last_reviewed: 2026-05-15
 approved_by:
   - prompt_owner: ai-enablement.advisor-productivity@example.com
   - ai_enablement_lead: ai-enablement.lead@example.com
+
+# --- Output length discipline (see docs/output-length-discipline.md) ---
+max_output_tokens: 800
+target_output_tokens: 600
+response_length_guidance: >
+  Single-page meeting brief. Bullet structure preferred over prose. Aim for
+  5-8 bullets per section, never paragraphs longer than 3 lines. Omit
+  preamble. Stop after the 'Open questions' section. Do not add a closing
+  summary, sign-off, or 'let me know if you need more.'
+
 change_summary: Initial approved release.

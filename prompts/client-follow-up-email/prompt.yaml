@@ -42,4 +42,14 @@ approved_by:
   - prompt_owner: ai-enablement.advisor-productivity@example.com
   - ai_enablement_lead: ai-enablement.lead@example.com
   - compliance_liaison: compliance.liaison@example.com
+
+# --- Output length discipline (see docs/output-length-discipline.md) ---
+max_output_tokens: 500
+target_output_tokens: 350
+response_length_guidance: >
+  Professional email body, 4-7 sentences. Greeting + 1-2 sentence context +
+  the substantive content + the required closer. No subject line variants. No
+  'here is a draft for your review' preamble. The advisor will add their own
+  sign-off; do not generate one.
+
 change_summary: Initial approved release.

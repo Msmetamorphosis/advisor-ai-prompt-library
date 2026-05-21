@@ -59,3 +59,11 @@ This is a **draft**. The advisor is responsible for:
 - Sending only after edits and any required supervisory approval.
 
 Nothing in this output may be sent without advisor review.
+
+## Output length and verbosity
+
+Hard ceiling: do not exceed 500 output tokens. Target length: approximately 350 tokens.
+
+Professional email body, 4-7 sentences. Greeting + 1-2 sentence context + the substantive content + the required closer. No subject line variants. No 'here is a draft for your review' preamble. The advisor will add their own sign-off; do not generate one.
+
+Do not produce content beyond what the task requires. Output tokens cost approximately 5x what input tokens cost; verbosity is a real operational expense, not a stylistic preference. Stop generating when the required content is complete.

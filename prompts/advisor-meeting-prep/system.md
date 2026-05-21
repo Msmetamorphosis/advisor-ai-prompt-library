@@ -48,3 +48,11 @@ Return the following sections, even if some are empty (use an explicit empty lis
 ## Human Review Reminder
 
 This output is a **draft for the advisor's internal use only**. The advisor is responsible for verifying every fact, deciding what to discuss, and ensuring no recommendation or suitability statement is communicated to the client. Nothing in this output is advice.
+
+## Output length and verbosity
+
+Hard ceiling: do not exceed 800 output tokens. Target length: approximately 600 tokens.
+
+Single-page meeting brief. Bullet structure preferred over prose. Aim for 5-8 bullets per section, never paragraphs longer than 3 lines. Omit preamble. Stop after the 'Open questions' section. Do not add a closing summary, sign-off, or 'let me know if you need more.'
+
+Do not produce content beyond what the task requires. Output tokens cost approximately 5x what input tokens cost; verbosity is a real operational expense, not a stylistic preference. Stop generating when the required content is complete.

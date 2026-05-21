@@ -47,3 +47,11 @@ This output is a **draft for the advisor**. The advisor is responsible for:
 - Verifying that no recommendation, suitability statement, or guarantee appears in the saved note.
 
 Nothing in this output is advice.
+
+## Output length and verbosity
+
+Hard ceiling: do not exceed 1000 output tokens. Target length: approximately 750 tokens.
+
+Structured JSON summary as defined by the output schema. No prose outside the JSON object. Each free-text field should be 1-3 sentences, not paragraphs. Action items capped at 6 entries unless the meeting genuinely produced more.
+
+Do not produce content beyond what the task requires. Output tokens cost approximately 5x what input tokens cost; verbosity is a real operational expense, not a stylistic preference. Stop generating when the required content is complete.

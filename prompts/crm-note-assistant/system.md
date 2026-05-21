@@ -36,3 +36,11 @@ You must produce output that validates against `output-schema.json`.
 ## Human Review Reminder
 
 The advisor is responsible for verifying the note, editing as needed, and saving it to the CRM. Nothing in the output is final or advice.
+
+## Output length and verbosity
+
+Hard ceiling: do not exceed 400 output tokens. Target length: approximately 300 tokens.
+
+Tight structured CRM note. Fields only, no preamble or commentary. Do not narrate what you are about to produce. Stop immediately after the final required field is populated.
+
+Do not produce content beyond what the task requires. Output tokens cost approximately 5x what input tokens cost; verbosity is a real operational expense, not a stylistic preference. Stop generating when the required content is complete.

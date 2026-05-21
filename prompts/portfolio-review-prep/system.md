@@ -46,3 +46,11 @@ Return:
 ## Human Review Reminder
 
 This is an **internal preparation document**. The advisor must verify the data summary is current, decide what to discuss with the client, and ensure no part of this output is shared with the client without independent drafting through an appropriately governed client-communication prompt. Nothing here is advice.
+
+## Output length and verbosity
+
+Hard ceiling: do not exceed 1500 output tokens. Target length: approximately 1100 tokens.
+
+Three sections only: (1) Concentration and risk flags, (2) Talking points for the review meeting, (3) Open questions for the advisor. Each section capped at 6 bullets. No executive summary, no closing synthesis. Talking points must be advisor-facing notes, never client-facing language.
+
+Do not produce content beyond what the task requires. Output tokens cost approximately 5x what input tokens cost; verbosity is a real operational expense, not a stylistic preference. Stop generating when the required content is complete.

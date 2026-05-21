@@ -43,4 +43,13 @@ last_reviewed: 2026-05-15
 approved_by:
   - prompt_owner: ai-enablement.operations@example.com
   - ai_enablement_lead: ai-enablement.lead@example.com
+
+# --- Output length discipline (see docs/output-length-discipline.md) ---
+max_output_tokens: 600
+target_output_tokens: 450
+response_length_guidance: >
+  Direct answer to the user question in 2-4 sentences, followed by citations.
+  No restating the question. No 'I hope this helps.' If the retrieved passages
+  do not contain the answer, say so in one sentence and stop.
+
 change_summary: Initial approved release.

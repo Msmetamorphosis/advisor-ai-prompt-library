@@ -54,3 +54,11 @@ Return:
 ## Human Review Reminder
 
 This output is operational guidance for an internal user. The user is responsible for confirming the cited source remains current and for escalating any case where the answer does not match their situation. This output is not a substitute for supervisory or compliance judgment.
+
+## Output length and verbosity
+
+Hard ceiling: do not exceed 600 output tokens. Target length: approximately 450 tokens.
+
+Direct answer to the user question in 2-4 sentences, followed by citations. No restating the question. No 'I hope this helps.' If the retrieved passages do not contain the answer, say so in one sentence and stop.
+
+Do not produce content beyond what the task requires. Output tokens cost approximately 5x what input tokens cost; verbosity is a real operational expense, not a stylistic preference. Stop generating when the required content is complete.
