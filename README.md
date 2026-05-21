@@ -278,7 +278,7 @@ Full mechanics, pricing math, and the per-prompt verbosity multipliers used in t
 
 # Observability and Monitoring
 
-The most expensive blind spot in enterprise AI programs today is not the model bill. It is the absence of operational visibility into what the prompt library is actually doing in production. Without observability, "the prompt is working" is a vibe, not a fact.
+The most expensive blind spot in enterprise AI programs today is not the model bill. It is the absence of operational visibility into what the prompt library is actually doing in production. Without observability, "the prompt is working" is a hope, not a fact.
 
 This repository defines the observability contract the library is designed to support: a canonical log event schema for every prompt call, a set of quality, cost, adoption, and drift metrics with explicit healthy bands and action thresholds, three operational dashboards (library health, cost and tier distribution, quality and drift), and the governance triggers that fire when metrics cross threshold. The metrics span prompt success rate, human correction frequency, average edit distance, escalation frequency, hallucination incident tracking, model tier usage distribution, cost drift detection, prompt degradation over time, user satisfaction scoring, and time-to-completion.
 
@@ -304,7 +304,7 @@ Full mechanics are in `docs/compliance-integration.md`.
 
 # Model and Prompt Governance Lifecycle
 
-Every prompt in this library is treated as an asset under management with a documented lifecycle, in the same operational shape that mature firms apply to traditional model risk under frameworks like SR 11-7. The lifecycle has eight stages: proposal, authoring and internal evaluation, legal and compliance review, pilot approval, monitored rollout, periodic revalidation, policy-triggered review, and sunset and deprecation.
+Every prompt in this library is treated as an asset under management with a documented lifecycle. The lifecycle has eight stages: proposal, authoring and internal evaluation, legal and compliance review, pilot approval, monitored rollout, periodic revalidation, policy-triggered review, and sunset and deprecation.
 
 The stages encode the failure modes the library is designed to prevent. Lower-tier eval gating prevents tier inflation. Compliance review on the right prompts prevents regulated communications from being drafted by AI without sign-off. Monitored rollout prevents a prompt that worked for fifty pilot advisors from silently failing when it reaches five thousand. Periodic revalidation prevents prompts approved against last year's policy from continuing to run against this year's policy. Policy-triggered review prevents regulatory changes from catching the AI program flat-footed. The sunset process prevents the library from accumulating inactive prompts indefinitely.
 
