@@ -276,6 +276,44 @@ Full mechanics, pricing math, and the per-prompt verbosity multipliers used in t
 
 ---
 
+# Observability and Monitoring
+
+The most expensive blind spot in enterprise AI programs today is not the model bill. It is the absence of operational visibility into what the prompt library is actually doing in production. Without observability, "the prompt is working" is a vibe, not a fact.
+
+This repository defines the observability contract the library is designed to support: a canonical log event schema for every prompt call, a set of quality, cost, adoption, and drift metrics with explicit healthy bands and action thresholds, three operational dashboards (library health, cost and tier distribution, quality and drift), and the governance triggers that fire when metrics cross threshold. The metrics span prompt success rate, human correction frequency, average edit distance, escalation frequency, hallucination incident tracking, model tier usage distribution, cost drift detection, prompt degradation over time, user satisfaction scoring, and time-to-completion.
+
+A working example of how this would surface operationally is included as `scripts/generate_usage_report.py`, which consumes the canonical event schema and produces a weekly Markdown report with per-prompt status, flagged prompts requiring review, and the threshold breaches that triggered the flags.
+
+Full mechanics, the log schema, the metric thresholds, and the governance triggers are in `docs/observability-and-monitoring.md`.
+
+---
+
+# Compliance Integration
+
+Prohibited language detection, supervisory review queues, and regulatory retention awareness are built into the library as first-class concerns rather than retrofitted downstream.
+
+Prohibited language is enforced at three layers: at prompt time inside each `system.md`, at pre-release time via a context-aware scanner in the test suite, and at production time as a log event field that routes failures to supervisory review rather than silently suppressing them. The phrase list is centralized in `tests/fixtures/prohibited_phrases.json` so a single update propagates to all three layers.
+
+Supervisory review is structured into four classes (`pre-use`, `post-use-sampled`, `post-use-flagged`, `internal-only`) declared per prompt in `prompt.yaml`. The classification is owned by the firm's compliance function; the library exposes it as a versioned, auditable field.
+
+Retention is governed by a `retention_class` field on every prompt that maps to the appropriate broker-dealer recordkeeping treatment under SEC Rule 17a-4 and FINRA Rule 4511. Every artifact involved in producing an advisor-facing or client-facing output (input variables, rendered prompt, model and version, output, human review status, advisor edits) is retained, because storing the output alone is not sufficient for reproducibility, and reproducibility is what reviewers will ask for.
+
+Full mechanics are in `docs/compliance-integration.md`.
+
+---
+
+# Model and Prompt Governance Lifecycle
+
+Every prompt in this library is treated as an asset under management with a documented lifecycle, in the same operational shape that mature firms apply to traditional model risk under frameworks like SR 11-7. The lifecycle has eight stages: proposal, authoring and internal evaluation, legal and compliance review, pilot approval, monitored rollout, periodic revalidation, policy-triggered review, and sunset and deprecation.
+
+The stages encode the failure modes the library is designed to prevent. Lower-tier eval gating prevents tier inflation. Compliance review on the right prompts prevents regulated communications from being drafted by AI without sign-off. Monitored rollout prevents a prompt that worked for fifty pilot advisors from silently failing when it reaches five thousand. Periodic revalidation prevents prompts approved against last year's policy from continuing to run against this year's policy. Policy-triggered review prevents regulatory changes from catching the AI program flat-footed. The sunset process prevents the library from accumulating inactive prompts indefinitely.
+
+Review cadence is set by risk class: Restricted quarterly, High every six months, Medium and Low annually. Sunset is a documented action with a written rationale and a deprecation notice, not silent removal, because outputs produced during a prompt's operational life remain books and records and must be reproducible from their source version indefinitely.
+
+Full lifecycle definition is in `docs/model-governance-lifecycle.md`.
+
+---
+
 # Repository Structure
 
 ```text
@@ -302,15 +340,19 @@ advisor-ai-prompt-library/
 ├── docs/
 │   ├── adoption-strategy.md
 │   ├── advisor-workflow-map.md
+│   ├── compliance-integration.md
 │   ├── cost-model.md
 │   ├── example-release-v1.0.0.md
 │   ├── human-review-model.md
 │   ├── measurement-plan.md
+│   ├── model-governance-lifecycle.md
+│   ├── observability-and-monitoring.md
 │   ├── output-length-discipline.md
 │   └── prompt-lifecycle.md
 └── scripts/
     ├── validate_prompt_library.py
     ├── generate_prompt_registry.py
+    ├── generate_usage_report.py
     ├── measure_prompts.py
     ├── cost_model.py
     ├── cost_model_extrapolation.py
