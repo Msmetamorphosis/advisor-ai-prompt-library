@@ -1,0 +1,56 @@
+[
+  {
+    "prompt": "advisor-meeting-prep",
+    "recommended_tier": "tier-2-standard",
+    "system_md_tokens": 667,
+    "user_template_tokens": 113,
+    "runtime_input_variables_tokens": 2500,
+    "per_call_input_tokens": 3280,
+    "per_call_output_tokens": 600
+  },
+  {
+    "prompt": "client-follow-up-email",
+    "recommended_tier": "tier-3-reasoning",
+    "system_md_tokens": 744,
+    "user_template_tokens": 142,
+    "runtime_input_variables_tokens": 1500,
+    "per_call_input_tokens": 2386,
+    "per_call_output_tokens": 350
+  },
+  {
+    "prompt": "client-meeting-summary",
+    "recommended_tier": "tier-2-standard",
+    "system_md_tokens": 593,
+    "user_template_tokens": 133,
+    "runtime_input_variables_tokens": 6000,
+    "per_call_input_tokens": 6726,
+    "per_call_output_tokens": 800
+  },
+  {
+    "prompt": "crm-note-assistant",
+    "recommended_tier": "tier-1-light",
+    "system_md_tokens": 391,
+    "user_template_tokens": 101,
+    "runtime_input_variables_tokens": 400,
+    "per_call_input_tokens": 892,
+    "per_call_output_tokens": 300
+  },
+  {
+    "prompt": "internal-policy-search",
+    "recommended_tier": "tier-2-standard",
+    "system_md_tokens": 636,
+    "user_template_tokens": 0,
+    "runtime_input_variables_tokens": 3000,
+    "per_call_input_tokens": 3636,
+    "per_call_output_tokens": 500
+  },
+  {
+    "prompt": "portfolio-review-prep",
+    "recommended_tier": "tier-3-reasoning",
+    "system_md_tokens": 578,
+    "user_template_tokens": 131,
+    "runtime_input_variables_tokens": 4500,
+    "per_call_input_tokens": 5209,
+    "per_call_output_tokens": 1200
+  }
+]
