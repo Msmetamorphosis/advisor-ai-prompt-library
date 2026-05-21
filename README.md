@@ -366,7 +366,7 @@ The broader objective is to explore whether governed AI augmentation systems can
 
 # Final Perspective
 
-The central idea behind this repository is that enterprise AI systems become significantly more useful when organizations stop treating prompting as an informal user behavior and begin treating it as governed operational infrastructure.
+The central idea behind this repository is that enterprise AI systems become significantly more useful when organizations treat prompting as governed operational infrastructure rather than as an informal user behavior.
 
 As organizations continue integrating systems like Microsoft Copilot, ChatGPT, and Claude into daily workflows, the challenge increasingly becomes less about accessing model capability and more about operationalizing that capability safely, consistently, and transparently.
 
