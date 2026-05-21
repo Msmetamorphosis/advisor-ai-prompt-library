@@ -1,6 +1,6 @@
 """
 What if the library grows to 50 prompts at the same usage profile?
-This isn't fantasy — RBC, Morgan Stanley, JPM have all disclosed
+RBC, Morgan Stanley, JPM have all disclosed
 prompt libraries in the 40-100 prompt range publicly.
 
 We assume the SAME tier distribution holds:
