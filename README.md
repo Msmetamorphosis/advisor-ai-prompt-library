@@ -271,7 +271,19 @@ advisor-ai-prompt-library/
 ├── templates/
 ├── tests/
 ├── docs/
+│   ├── adoption-strategy.md
+│   ├── advisor-workflow-map.md
+│   ├── cost-model.md
+│   ├── example-release-v1.0.0.md
+│   ├── human-review-model.md
+│   ├── measurement-plan.md
+│   └── prompt-lifecycle.md
 └── scripts/
+    ├── validate_prompt_library.py
+    ├── generate_prompt_registry.py
+    ├── measure_prompts.py
+    ├── cost_model.py
+    └── cost_model_extrapolation.py
 ```
 
 ---
