@@ -1,0 +1,154 @@
+{
+  "rows": [
+    {
+      "prompt": "advisor-meeting-prep",
+      "tier": "tier-2-standard",
+      "input_tokens": 3280,
+      "output_tokens": 600,
+      "calls_per_advisor_per_day": 1.5,
+      "annual_calls": 2970000,
+      "rec_model": "Haiku-4.5",
+      "cost_per_call_rec": 0.006279999999999999,
+      "cost_per_call_sonnet": 0.01884,
+      "cost_per_call_opus": 0.0314,
+      "annual_cost_recommended": 18651.6,
+      "annual_cost_all_sonnet": 55954.799999999996,
+      "annual_cost_all_opus": 93257.99999999999,
+      "annual_cost_openai_recommended": 15325.199999999999,
+      "openai_rec_model": "GPT-5.4-mini"
+    },
+    {
+      "prompt": "client-follow-up-email",
+      "tier": "tier-3-reasoning",
+      "input_tokens": 2386,
+      "output_tokens": 350,
+      "calls_per_advisor_per_day": 1.0,
+      "annual_calls": 1980000,
+      "rec_model": "Sonnet-4.6",
+      "cost_per_call_rec": 0.012408,
+      "cost_per_call_sonnet": 0.012408,
+      "cost_per_call_opus": 0.020679999999999997,
+      "annual_cost_recommended": 24567.84,
+      "annual_cost_all_sonnet": 24567.84,
+      "annual_cost_all_opus": 40946.399999999994,
+      "annual_cost_openai_recommended": 22205.699999999997,
+      "openai_rec_model": "GPT-5.4"
+    },
+    {
+      "prompt": "client-meeting-summary",
+      "tier": "tier-2-standard",
+      "input_tokens": 6726,
+      "output_tokens": 800,
+      "calls_per_advisor_per_day": 1.5,
+      "annual_calls": 2970000,
+      "rec_model": "Haiku-4.5",
+      "cost_per_call_rec": 0.010726,
+      "cost_per_call_sonnet": 0.032178,
+      "cost_per_call_opus": 0.05363,
+      "annual_cost_recommended": 31856.219999999998,
+      "annual_cost_all_sonnet": 95568.65999999999,
+      "annual_cost_all_opus": 159281.1,
+      "annual_cost_openai_recommended": 25674.165000000005,
+      "openai_rec_model": "GPT-5.4-mini"
+    },
+    {
+      "prompt": "crm-note-assistant",
+      "tier": "tier-1-light",
+      "input_tokens": 892,
+      "output_tokens": 300,
+      "calls_per_advisor_per_day": 4.0,
+      "annual_calls": 7920000,
+      "rec_model": "Haiku-4.5",
+      "cost_per_call_rec": 0.002392,
+      "cost_per_call_sonnet": 0.007176,
+      "cost_per_call_opus": 0.01196,
+      "annual_cost_recommended": 18944.64,
+      "annual_cost_all_sonnet": 56833.92,
+      "annual_cost_all_opus": 94723.2,
+      "annual_cost_openai_recommended": 4382.927999999999,
+      "openai_rec_model": "GPT-5.4-nano"
+    },
+    {
+      "prompt": "internal-policy-search",
+      "tier": "tier-2-standard",
+      "input_tokens": 3636,
+      "output_tokens": 500,
+      "calls_per_advisor_per_day": 2.0,
+      "annual_calls": 3960000,
+      "rec_model": "Haiku-4.5",
+      "cost_per_call_rec": 0.006136,
+      "cost_per_call_sonnet": 0.018408,
+      "cost_per_call_opus": 0.03068,
+      "annual_cost_recommended": 24298.56,
+      "annual_cost_all_sonnet": 72895.68000000001,
+      "annual_cost_all_opus": 121492.8,
+      "annual_cost_openai_recommended": 19708.920000000002,
+      "openai_rec_model": "GPT-5.4-mini"
+    },
+    {
+      "prompt": "portfolio-review-prep",
+      "tier": "tier-3-reasoning",
+      "input_tokens": 5209,
+      "output_tokens": 1200,
+      "calls_per_advisor_per_day": 0.3,
+      "annual_calls": 594000,
+      "rec_model": "Sonnet-4.6",
+      "cost_per_call_rec": 0.033627000000000004,
+      "cost_per_call_sonnet": 0.033627000000000004,
+      "cost_per_call_opus": 0.056045,
+      "annual_cost_recommended": 19974.438000000002,
+      "annual_cost_all_sonnet": 19974.438000000002,
+      "annual_cost_all_opus": 33290.729999999996,
+      "annual_cost_openai_recommended": 18427.364999999998,
+      "openai_rec_model": "GPT-5.4"
+    }
+  ],
+  "totals": {
+    "recommended": 138293.298,
+    "all_sonnet": 325795.338,
+    "all_opus": 542992.23,
+    "calls": 20394000.0
+  },
+  "assumptions": {
+    "advisors": 9000,
+    "workdays": 220,
+    "volume": {
+      "crm-note-assistant": 4.0,
+      "advisor-meeting-prep": 1.5,
+      "client-meeting-summary": 1.5,
+      "internal-policy-search": 2.0,
+      "client-follow-up-email": 1.0,
+      "portfolio-review-prep": 0.3
+    },
+    "pricing": {
+      "Haiku-4.5": [
+        1.0,
+        5.0
+      ],
+      "Sonnet-4.6": [
+        3.0,
+        15.0
+      ],
+      "Opus-4.7": [
+        5.0,
+        25.0
+      ],
+      "GPT-5.4-nano": [
+        0.2,
+        1.25
+      ],
+      "GPT-5.4-mini": [
+        0.75,
+        4.5
+      ],
+      "GPT-5.4": [
+        2.5,
+        15.0
+      ],
+      "Gemini-2.5-Flash": [
+        0.3,
+        2.5
+      ]
+    }
+  }
+}
