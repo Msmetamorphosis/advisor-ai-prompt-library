@@ -1,200 +1,287 @@
 # advisor-ai-prompt-library
 
-> A working example of what a governed, production-grade AI prompt library looks like for regulated financial services firms — built by Metamorphic Curations to show you exactly what we would deliver.
+A working example of what governed, production-oriented AI prompt infrastructure could look like inside a regulated financial services organization.
+
+Built as an independent portfolio and research project by Crystal Tubbs.
 
 ---
 
-## What You Are Looking At
+# What You Are Looking At
 
-This repository is a **fully functional reference implementation** of an enterprise AI prompt library for a wealth management firm. Every file in it is something your team would actually use: working governance docs, tested prompts, a CI-enforced test suite, operational scripts, and the documentation advisors and compliance reviewers would receive on day one.
+This repository is a fully functional reference implementation exploring how AI prompt libraries could be operationalized safely inside regulated enterprise environments, particularly wealth management and financial services organizations.
 
-We built this so you can see the work, not just hear about it. Fork it, run the tests, read the system prompts, trace a prompt from intake through compliance review to production release. This is the standard we hold ourselves to on every engagement.
+The project was built around a simple observation:
 
----
+Most enterprise AI usage today still operates through ad hoc prompting. Employees open ChatGPT, Copilot, or Claude, improvise instructions, and hope the outputs are useful, compliant, and accurate enough to trust. That workflow may be acceptable for low-risk experimentation, but it becomes increasingly problematic in regulated environments where consistency, auditability, and governance matter.
 
-## The Business Problem We Are Solving For You
+This repository explores what happens when prompts are instead treated as governed operational assets.
 
-Financial advisors spend a disproportionate share of their day on tasks that are not face-to-face client time: meeting preparation, CRM documentation, follow-up emails, portfolio review prep, and policy lookups. General-purpose AI tools (ChatGPT, Copilot, Claude) can compress these tasks, but in a regulated environment, ungoverned prompting introduces real risks:
+Every file in this repository exists to model what a production-oriented prompt governance system could look like:
+- structured prompt modules
+- governance documentation
+- approval workflows
+- semantic versioning
+- regression testing
+- evaluation infrastructure
+- risk classification
+- human review enforcement
+- operational validation
 
-- **Inconsistent output quality** across advisors using ad-hoc prompts.
-- **Compliance exposure** from drafts that read as recommendations, guarantees, or unauthorized advice.
-- **Hallucinated policy answers** that contradict the firm's actual procedures.
-- **PII leakage** into prompts that were never reviewed.
-- **No audit trail** for what was generated, who reviewed it, or whether it was sent.
-
-A prompt library — versioned like code, tested like code, and reviewed like code — is the reliability layer between the advisor, the model, the firm's data, and the regulator. This is what we build.
-
----
-
-## What You Get When You Engage Us
-
-We deliver a governed prompt library scoped to your advisor workflows. Here is what that includes.
-
-### Six Prompt Modules, Each Covering a Moment in the Advisor's Day
-
-| Workflow moment | Prompt | What it does |
-|---|---|---|
-| Before a client meeting | `advisor-meeting-prep` | Surfaces known facts, prior action items, and open questions from your CRM |
-| During or after the meeting | `client-meeting-summary` | Produces a structured summary plus a CRM-ready note for advisor review |
-| CRM documentation | `crm-note-assistant` | Tight, source-grounded CRM entries with source evidence built in |
-| Follow-up communication | `client-follow-up-email` | Drafts an advisor-reviewed email with required compliance closer intact |
-| Operational questions | `internal-policy-search` | Cites your internal policy or escalates — never invents |
-| Portfolio review prep | `portfolio-review-prep` | Builds a meeting agenda from approved data summaries |
-
-Every prompt ships with a system prompt, a user template with placeholder variables, output schema, worked examples, six or more regression test cases, per-prompt changelog, and compliance constraints documentation for client-facing prompts.
-
-### Governance Built In, Not Bolted On
-
-Every prompt is risk-classified (Low, Medium, High, or Restricted) using the decision tree in `RISK-TAXONOMY.md`. Risk classification drives who approves the prompt, how often it is reviewed, and whether human-in-the-loop is required. The rules are enforced by the test suite, not just documented.
-
-```
-Low       Peer review, 12-month cadence
-Medium    AI Enablement Lead sign-off, 6-month cadence
-High      Compliance Liaison sign-off, quarterly cadence
-Restricted All of the above + Business Unit Sponsor, 30-day cadence
-```
-
-### A Test Suite That Enforces What Compliance Requires
-
-Run `pytest` and the suite verifies:
-
-- Every prompt folder contains the required files.
-- Every `prompt.yaml` declares required metadata fields with valid values.
-- Every `eval-cases.json` and `output-schema.json` is valid and well-formed.
-- Every prompt has at least five eval cases including refusal cases.
-- `human_review_required: true` is set for every Medium, High, and Restricted prompt.
-- Prohibited phrases (guaranteed return, tax advice, you should invest, and others) do not appear in production system prompts or example outputs.
-- Semantic versioning is well-formed.
-- Prompt IDs are unique across the library.
-
-CI failure means the prompt does not ship. No exceptions.
-
-### Semantic Versioning at the Prompt Level
-
-Every prompt is versioned independently.
-
-- **Major (X.0.0):** schema change, scope change, or new approver required.
-- **Minor (1.X.0):** new behavior or field, backward compatible.
-- **Patch (1.0.X):** wording, typo, or compliance language tightening with no behavior change.
-
-Every change requires an entry in the prompt's `changelog.md` and in the top-level `CHANGELOG.md`. The Git history is the audit log.
-
-### Human-in-the-Loop Enforced by the System
-
-The library does not rely on advisors remembering to review. The advisor-review reminder is in the system prompt of every client-facing prompt. The test suite verifies it is there. The output schema labels every draft as "Draft — pending advisor review." Compliance-sensitive topics surface as structured `human_review_flags`, not buried prose.
-
-AI drafts. Advisors decide. That sentence is not a philosophy statement. It is enforced in code.
+The goal is not to present AI as autonomous decision making. The goal is to demonstrate how AI augmentation could be made safer, more reliable, and more operationally usable when surrounded by the right architectural controls.
 
 ---
 
-## Repository Structure
+# The Problem This Repository Explores
 
-```
+Financial advisors spend a substantial portion of their day on operational and documentation-heavy workflows that are necessary, but not directly client-facing:
+- meeting preparation
+- CRM note creation
+- policy lookups
+- follow-up communication
+- portfolio review preparation
+- internal information retrieval
+
+Large language models can dramatically reduce the time required for these workflows. However, in regulated environments, ungoverned prompting introduces meaningful operational risk.
+
+A single employee improvising prompts in a chat interface may unintentionally:
+- generate recommendation-like language
+- surface hallucinated policy answers
+- omit required disclosures
+- expose sensitive client information
+- create inconsistent documentation quality
+- bypass review expectations
+- produce outputs with no audit trail or reproducibility
+
+The central premise behind this repository is that enterprise AI reliability does not emerge from prompting alone. Reliability emerges from the surrounding governance, validation, testing, and operational structure.
+
+This project explores what that structure could look like.
+
+---
+
+# Why Governed Prompt Libraries Matter
+
+One of the biggest misconceptions in enterprise AI today is the idea that prompt engineering is simply about writing better instructions.
+
+In practice, enterprise prompt engineering becomes a systems design problem.
+
+Once AI systems begin interacting with regulated workflows, the organization must answer questions like:
+- Who approves prompts before production use?
+- How are prompt changes documented?
+- How are outputs validated?
+- How often are prompts reviewed?
+- What happens when policies change?
+- Which prompts require human review?
+- How are hallucinations mitigated?
+- How is prohibited language detected?
+- How are prompts versioned across teams?
+- How are outputs evaluated over time?
+
+This repository was built to explore those questions through a working implementation rather than abstract discussion.
+
+The broader philosophy behind the project is that prompt libraries in regulated industries should be treated similarly to production software systems:
+- versioned
+- reviewed
+- tested
+- monitored
+- governed
+- auditable
+
+Prompt engineering at enterprise scale becomes less about clever prompting and more about operational reliability.
+
+---
+
+# What This Repository Includes
+
+The repository models a hypothetical advisor workflow environment and includes six prompt modules representing common operational moments within a wealth management organization.
+
+These modules cover:
+- advisor meeting preparation
+- client meeting summaries
+- CRM note drafting
+- advisor follow-up communication
+- internal policy retrieval
+- portfolio review preparation
+
+Each module contains:
+- a system prompt
+- user prompt templates
+- output schemas
+- worked examples
+- evaluation cases
+- governance metadata
+- compliance constraints
+- semantic version tracking
+- changelog documentation
+
+The prompts are intentionally structured as governed operational artifacts rather than isolated instructions.
+
+---
+
+# Governance Built Into the System
+
+A major focus of the project is demonstrating governance as a system-level requirement rather than an informal policy layer.
+
+Every prompt in the repository is assigned a risk classification:
+- Low
+- Medium
+- High
+- Restricted
+
+That classification determines:
+- review cadence
+- approval requirements
+- oversight expectations
+- release constraints
+- human-in-the-loop requirements
+
+Rather than relying on employees to remember governance procedures manually, the repository attempts to operationalize those requirements directly into the validation and testing process.
+
+The included validation suite enforces rules such as:
+- required metadata presence
+- schema integrity
+- evaluation case coverage
+- prohibited phrase detection
+- prompt uniqueness
+- semantic version formatting
+- human review enforcement for higher-risk workflows
+
+In this model, prompts that fail governance validation simply do not ship.
+
+---
+
+# Human-in-the-Loop by Design
+
+This repository intentionally focuses less on autonomous AI agents and more on controlled augmentation workflows.
+
+The system is designed around the assumption that AI should support human expertise, not replace it.
+
+Client-facing workflows therefore incorporate:
+- advisor review expectations
+- structured escalation pathways
+- review flags
+- bounded outputs
+- compliance-aware constraints
+
+The underlying philosophy is simple:
+
+> AI drafts. Humans decide.
+
+Human oversight is treated as an architectural requirement rather than a behavioral assumption.
+
+---
+
+# Reliability Through Architecture, Not Prompting Alone
+
+A major motivation behind this project was exploring how architectural reliability layers can stabilize AI behavior more effectively than prompt wording alone.
+
+The repository incorporates concepts such as:
+- regression evaluation
+- structured validation
+- constrained outputs
+- governance enforcement
+- review workflows
+- audit-oriented change tracking
+
+The broader idea is that enterprise AI reliability emerges from the surrounding operational architecture rather than from any single prompt.
+
+This becomes especially important in regulated environments where consistency and trust matter more than novelty.
+
+---
+
+# Repository Structure
+
+```text
 advisor-ai-prompt-library/
-├── README.md                      ← you are here
-├── DISCLAIMER.md                  ← mock-project disclosure
-├── GOVERNANCE.md                  ← ownership, approval, review cadence
-├── VERSIONING.md                  ← semantic versioning policy
-├── RISK-TAXONOMY.md               ← Low / Medium / High / Restricted
-├── EVALUATION-RUBRIC.md           ← 10-dimension scoring rubric
-├── CHANGELOG.md                   ← release history
+├── README.md
+├── DISCLAIMER.md
+├── GOVERNANCE.md
+├── VERSIONING.md
+├── RISK-TAXONOMY.md
+├── EVALUATION-RUBRIC.md
+├── CHANGELOG.md
 ├── requirements.txt
 ├── pytest.ini
-├── .gitignore
 ├── .github/
-│   ├── pull_request_template.md
-│   └── ISSUE_TEMPLATE/
-│       ├── prompt_change_request.md
-│       ├── compliance_review.md
-│       └── bug_report.md
-├── prompts/                       ← six advisor-workflow prompts
+├── prompts/
 │   ├── advisor-meeting-prep/
 │   ├── client-meeting-summary/
 │   ├── crm-note-assistant/
 │   ├── client-follow-up-email/
 │   ├── internal-policy-search/
 │   └── portfolio-review-prep/
-├── templates/                     ← starter scaffolds for new prompts
-├── tests/                         ← pytest validation + regression suite
-├── docs/                          ← adoption, lifecycle, measurement
-└── scripts/                       ← validation + registry generation
+├── templates/
+├── tests/
+├── docs/
+└── scripts/
 ```
 
 ---
 
-## How to Run the Tests Yourself
+# Running the Validation Suite
+
+Install dependencies:
 
 ```bash
-# 1. Install dependencies
 pip install -r requirements.txt
+```
 
-# 2. Run the full validation + regression suite
+Run the validation and regression suite:
+
+```bash
 pytest -v
+```
 
-# 3. Run the standalone library validator
+Run the standalone validator:
+
+```bash
 python scripts/validate_prompt_library.py
+```
 
-# 4. Regenerate the prompt registry
+Regenerate the prompt registry:
+
+```bash
 python scripts/generate_prompt_registry.py
 ```
 
 ---
 
-## How We Measure Whether It Is Working
+# Measurement Philosophy
 
-Adoption is not a success metric. Time saved, edit distance, escalation rate, and hallucination rate are. `docs/measurement-plan.md` defines each metric, its target, and how it is measured. We do not ask you to trust that the library is delivering value. We define what delivering value looks like before we ship, and we report against it every quarter.
+The repository intentionally treats adoption alone as an insufficient success metric.
 
----
+The project instead models evaluation approaches focused on:
+- time saved
+- output consistency
+- edit distance
+- hallucination rate
+- escalation frequency
+- human correction frequency
+- workflow completion efficiency
 
-## What an Engagement Looks Like
-
-1. **Workflow analysis.** We map your highest-volume non-client-facing-time tasks and identify which ones have the right input/output structure for prompt-assisted workflows.
-2. **Prompt design and governance setup.** We author the system prompts, user templates, eval cases, and governance documentation for each approved workflow.
-3. **Compliance review.** We run the library through your compliance liaison using the materials in this repo as the review package.
-4. **Pilot.** We deploy to a closed group of advisors, measure, and tighten.
-5. **Production release.** We hand off a tagged release with a full test suite, changelog, and advisor-facing release note.
-6. **Ongoing ownership.** We can own the library on your behalf or transfer it to your internal team. Either way, you get the same versioning, test, and review infrastructure so the work continues safely after we leave.
-
----
-
-## What This Is Not
-
-- This library does not send anything to clients on behalf of advisors.
-- It does not make investment recommendations, suitability determinations, or tax statements.
-- It does not bypass your supervisory procedures — it is designed to document, support, and survive them.
-- It is not a chatbot. It is a governed set of workflow tools that happen to be powered by a language model.
+The broader objective is to explore whether governed AI augmentation systems can become operationally trustworthy enough for sustained enterprise adoption.
 
 ---
 
-## Why Governed Prompt Libraries Matter at Enterprise Scale
+# What This Project Is Not
 
-Prompt engineering at enterprise scale is not writing clever instructions. It is the reliability layer between:
+This repository is not:
+- a production deployment
+- an autonomous advisor system
+- a suitability engine
+- a financial recommendation engine
+- a tax advisory system
+- a client-facing chatbot
 
-1. **Human users** — advisors, CSAs, operations staff.
-2. **Enterprise data** — CRM, policy documents, approved research.
-3. **Model behavior** — drift, hallucination, sycophancy, format breakage.
-4. **Compliance constraints** — FINRA, SEC, internal supervisory policy.
-5. **Workflow adoption** — does the advisor actually use it tomorrow?
-6. **Measurable outcomes** — time saved, edit distance, escalation rate.
+The implementation is intentionally constrained to workflow augmentation and governance exploration.
 
-A governed prompt library makes AI augmentation safer and more adoptable than each advisor improvising in a chat box. This repository is the proof of concept. An engagement with us is the production version, scoped to your workflows, your data, and your compliance requirements.
-
----
-
-## About This Repository
-
-Built by: Metamorphic Curations LLC — portfolio demonstration, May 2026
-
-**What this is:** A fully functional reference implementation and demonstration of enterprise AI prompt governance for wealth management, built by Metamorphic Curations.
-
-**What this is not:** A production deployment. Any firm wishing to adapt these patterns for live advisor use must perform their own compliance, supervisory, information security, model risk management, and privacy review.
-
-All examples are synthetic. No proprietary client data is included.
+All examples and data included in the repository are synthetic.
 
 ---
 
-## Ready to Build This for Your Firm?
+# Final Perspective
 
-This repository is the starting point. An engagement produces a version scoped to your specific advisor workflows, integrated with your CRM and retrieval systems, reviewed by your compliance team, and handed off with the governance infrastructure to run it safely.
+The central idea behind this repository is that enterprise AI systems become significantly more useful when organizations stop treating prompting as an informal user behavior and begin treating it as governed operational infrastructure.
 
-**Contact:** Crystal Tubbs, Metamorphic Curations LLC
+As organizations continue integrating systems like Microsoft Copilot, ChatGPT, and Claude into daily workflows, the challenge increasingly becomes less about accessing model capability and more about operationalizing that capability safely, consistently, and transparently.
+
+This repository was built as a practical exploration of how that operationalization process could look inside regulated industries.
